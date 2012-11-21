@@ -166,7 +166,8 @@ var bootstrapWizardCreate = function(element, options) {
 	obj.fixNavigationButtons();
 
 	$('a[data-toggle="tab"]', element).on('click', function (e) {
-		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex())===false){
+		if ($settings.onTabClick && typeof $settings.onTabClick === 'function' &&
+		    $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), $(this).parent('li'))===false){
 			return false;
 		}
 	});
